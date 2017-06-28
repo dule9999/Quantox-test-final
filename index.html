@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="route">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Find a Route v0.1</title>
+	<link rel="shortcut icon" type="image/jpg" href="slike/favicon.ico">
+    <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script data-require="google-maps@1.0.0" data-semver="1.0.0" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.17"></script>
+    <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+    <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
+    <script src="app.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <google-map control="map.control" center="map.center" zoom="map.zoom">
+          <marker coords="marker.center"></marker>
+        </google-map>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="origin" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-8">
+              <input type="text" id="origin" class="form-control" ng-model="directions.origin" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="destination" class="col-sm-2 control-label">Destination</label>
+            <div class="col-sm-8">
+              <input type="text" id="destination" class="form-control" ng-model="directions.destination" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              <button id="button_for_direction" class="btn btn-primary" style="position:center;" ng-click="getDirections();getRoute();" >Get Directions</button>
+            </div>
+          </div>
+        </form>
+		
+		<div id="lista" class="col-center containter">
+			<p class="navbar-header" ng-if="showbuttonsave" >List of routes {{theroute}}: </p>
+			<br>
+			<div id="directionsList" ng-show="directions.showList" ></div>
+			<button class="padding-left" ng-click="storeRoute()">Save this route</button>
+		</div>
+ 
+       
+      </div>
+    </div>
+
+	<div id="savedroutes" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div ng-repeat="saved in savedroutes">
+			<a>{{saved.location + ' - ' + saved.destination}}</a>
+		</div>
+	</div>
+	<button onclick="openNav()">Stored Routes</span>
+  </body>
+
+</html>
