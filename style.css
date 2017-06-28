@@ -1,0 +1,73 @@
+body {
+   background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+}
+
+#sve {
+	margin-top: 50px;
+	font-size: 20px;
+}
+
+#error {
+	left: 0;
+	position: absolute;
+	display: block;
+	margin-left: 50px;
+	background-color: #f9fbff;
+}
+
+#formular {
+	width: 450px;
+	margin: 0 auto;
+	background-color: #f9fbff;
+	padding: 15px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+input {
+	background-color: #f9fbff;
+	font-size: 16px;
+}
+
+#from-link {
+	text-decoration: none;
+	background-color: #f9fbff;
+	border: 1px solid black;
+	margin: 3px;
+	padding: 3px;
+	padding-top: 2px;
+	color: black;
+}
+
+#from-link:hover {
+	background-color: #e6ecf7;
+}
+
+#from-link:active {
+	color:red;
+}
+
+#map {
+    width: 45%;
+    height: 550px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+	  
+.loc_and_des {
+	display: block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.sub_i_reset {
+	margin-top: 15px;
+	margin-right: 30px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.sub_i_reset:hover {
+	background-color: #e6ecf7;
+}
+
+
